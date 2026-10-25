@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Discover Your Soulmate Energy – Free Quiz | Soulmate Signs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:radial-gradient(circle at top,#3b2667,#120c24 70%);color:#f4eefe;min-height:100vh;display:flex;justify-content:center}
+.wrap{width:100%;max-width:480px;padding:24px 18px 40px;display:flex;flex-direction:column;min-height:100vh}
+h1,h2{font-family:'Cormorant Garamond',serif;text-align:center;line-height:1.15}
+h1{font-size:2.1rem;margin:12px 0}h2{font-size:1.6rem;margin-bottom:18px}
+p{text-align:center;color:#d8cdf0;line-height:1.5}
+.stars{text-align:center;font-size:2rem;letter-spacing:6px}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px;margin-top:18px;backdrop-filter:blur(6px)}
+.btn,.opt{display:block;width:100%;border:0;border-radius:14px;padding:15px;font:600 1rem Inter,sans-serif;cursor:pointer;margin-top:10px;transition:.2s}
+.opt{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.15);text-align:left}
+.opt:hover{background:rgba(214,175,255,.25)}
+.btn{background:linear-gradient(90deg,#f7c873,#e58fd0);color:#2a1546;font-size:1.1rem;box-shadow:0 6px 20px rgba(229,143,208,.4);text-decoration:none;text-align:center}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.grid .opt{text-align:center;padding:12px 4px;font-size:.85rem;margin:0}
+.bar{height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;margin-bottom:16px}.bar i{display:block;height:100%;background:#f7c873;width:0;transition:.3s}
+.hide{display:none}.orb{width:120px;height:120px;margin:30px auto;border-radius:50%;background:radial-gradient(circle,#f7c873,#9b5de5 60%,transparent 70%);animation:p 1.4s infinite}
+@keyframes p{50%{transform:scale(1.15);opacity:.7}}
+.step{opacity:.4;margin:6px 0;text-align:center}.step.on{opacity:1}
+.sketch{width:150px;height:150px;margin:10px auto;border-radius:50%;background:#e9e1d3;filter:blur(5px);display:flex;align-items:center;justify-content:center;font-size:4rem;color:#555}
+footer{margin-top:auto;padding-top:28px;font-size:.72rem;color:#a99bc7;text-align:center;line-height:1.5}
+.optin{margin-top:18px}.optin input[type=text],.optin input[type=email]{width:100%;padding:13px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font:1rem Inter,sans-serif;margin-top:8px}
+.optin small{display:block;margin-top:8px;font-size:.7rem;color:#a99bc7;text-align:center}.hp{position:absolute;left:-9999px}
+</style></head><body><div class="wrap">
+<section id="intro"><div class="stars">✦ ☾ ✦</div><h1>What Does the Universe Say About Your Soulmate?</h1>
+<p>Answer 6 quick questions to explore your love energy. Takes less than 60 seconds.</p>
+<button class="btn" style="margin-top:28px" onclick="start()">Start the Free Quiz ✨</button></section>
+<section id="quiz" class="hide"><div class="bar"><i id="bar"></i></div><div class="card"><h2 id="q"></h2><div id="opts"></div></div></section>
+<section id="load" class="hide"><h2>Reading your energy…</h2><div class="orb"></div>
+<p class="step" id="s0">Aligning your zodiac sign…</p><p class="step" id="s1">Interpreting your love patterns…</p><p class="step" id="s2">Preparing your soulmate insight…</p></section>
+<section id="result" class="hide"><div class="stars">♡</div><h2>Your Love Energy Is Strong Right Now</h2>
+<div class="card"><p id="rtext"></p><div class="sketch">?</div>
+<p>Many people with your profile choose to see an artist's psychic sketch of who their soulmate <em>might</em> look like. Curious what yours could reveal?</p>
+<a class="btn" id="cta" href="#" rel="nofollow sponsored">See My Soulmate Sketch →</a></div>
+<div class="card optin"><h2 style="font-size:1.3rem;margin-bottom:8px">Free PDF: Soulmate Zodiac Compatibility</h2>
+<p>Get your free guide to which signs may click with yours — sent to your inbox.</p>
+<form id="optin" method="POST" target="brevo_iframe" onsubmit="return optinSubmit()">
+<input type="text" name="FIRSTNAME" placeholder="First name" required autocomplete="given-name">
+<input type="email" name="EMAIL" placeholder="Email address" required autocomplete="email">
+<input type="text" name="email_address_check" value="" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="locale" value="en"><input type="hidden" name="html_type" value="simple">
+<input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term">
+<button class="btn" type="submit">Send Me the Free PDF 💌</button>
+<small>No spam. Unsubscribe anytime. For entertainment purposes.</small></form>
+<p id="optin-ok" class="hide" style="margin-top:10px">✨ Thank you! Check your inbox for your free PDF.</p></div>
+<iframe name="brevo_iframe" style="display:none" title="hidden"></iframe></section>
+<footer>© Soulmate Signs (@soulmate.signs)<br>For entertainment purposes. Results not guaranteed.<br>Affiliate disclosure: This page contains affiliate links. If you make a purchase, we may earn a commission at no extra cost to you.<br>This site is not part of Facebook/Meta and is not endorsed by Meta.<br><a href="privacy.html" style="color:inherit">Privacy Policy</a></footer>
+</div><script>
+const HOPLINK="https://hop.clickbank.net/?affiliate=duyspace&vendor=TINAPSC";
+const Q=[
+{q:"What's your zodiac sign?",o:["Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"],g:1},
+{q:"What's your current relationship status?",o:["Single","It's complicated","In a relationship","Divorced / widowed"]},
+{q:"What do you value most in a partner?",o:["Loyalty","Kindness","Passion","Deep conversation"]},
+{q:"Have you ever felt you've met someone 'meant to be'?",o:["Yes, more than once","Maybe, once","Never yet","I'm not sure"]},
+{q:"How do you usually connect with your intuition?",o:["Tarot or oracle cards","Astrology","Dreams","Gut feelings"]},
+{q:"What are you hoping for in love right now?",o:["Finding my true match","Healing and new beginnings","Clarity about someone","Simply curious"]}];
+let i=0,a=[];const $=id=>document.getElementById(id);
+const BREVO_FORM_URL='BREVO_URL_HERE';
+const UP=new URLSearchParams(location.search);
+const TID={tiktok:"quiztt",facebook:"quizfb",youtube:"quizyt",instagram:"quizig"}[(UP.get("utm_source")||"").toLowerCase()]||"quiz";
+["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(k=>{const f=document.querySelector('#optin [name='+k+']');if(f)f.value=UP.get(k)||""});
+if(BREVO_FORM_URL&&BREVO_FORM_URL!=='BREVO_URL_HERE')document.getElementById('optin').action=BREVO_FORM_URL;
+function optinSubmit(){const f=$("optin");if(f.email_address_check.value)return false;if(BREVO_FORM_URL==='BREVO_URL_HERE'){alert('Form not configured yet.');return false}
+setTimeout(()=>{f.classList.add("hide");$("optin-ok").classList.remove("hide")},600);return true}
+document.getElementById('cta').href=HOPLINK+"&tid="+encodeURIComponent(TID);
+function show(id){["intro","quiz","load","result"].forEach(s=>$(s).classList.toggle("hide",s!==id))}
+function start(){show("quiz");render()}
+function render(){const c=Q[i];$("bar").style.width=(i/Q.length*100)+"%";$("q").textContent=c.q;const o=$("opts");o.innerHTML="";o.className=c.g?"grid":"";
+c.o.forEach(t=>{const b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=()=>{a.push(t);i++;i<Q.length?render():analyze()};o.appendChild(b)})}
+function analyze(){show("load");[0,1,2].forEach(k=>setTimeout(()=>$("s"+k).classList.add("on"),k*900+300));
+setTimeout(()=>{$("rtext").innerHTML="As a <b>"+a[0]+"</b> who values <b>"+a[2].toLowerCase()+"</b>, your answers suggest an open heart and strong intuition — a meaningful time to explore what love may hold for you.";show("result")},3300)}
+</script></body></html>
