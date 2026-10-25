@@ -58,12 +58,12 @@ const Q=[
 {q:"How do you usually connect with your intuition?",o:["Tarot or oracle cards","Astrology","Dreams","Gut feelings"]},
 {q:"What are you hoping for in love right now?",o:["Finding my true match","Healing and new beginnings","Clarity about someone","Simply curious"]}];
 let i=0,a=[];const $=id=>document.getElementById(id);
-const BREVO_FORM_URL='BREVO_URL_HERE';
+const BREVO_FORM_URL='https://5d72c97b.sibforms.com/serve/MUIFAPjHDTX3pv_EgjrhBI-Ie5DlpocXJN6RyIhzobLFFuwgo0C9emI2KBpcb1DlY3aXGn1RROZAXS8jMrBu-lUD4HNB9mh9dV5MHpR1Krka5-b1z4n6ieFSS4FoPu85jyEa-4ZnZmIF4GFPxaPm5oA4ZbpmlnqAEch33ZBJgD0XH1PDCPgQwmzW-3EvMF6yWHAxHrzaBj5iYTL_Lg==';
 const UP=new URLSearchParams(location.search);
 const TID={tiktok:"quiztt",facebook:"quizfb",youtube:"quizyt",instagram:"quizig"}[(UP.get("utm_source")||"").toLowerCase()]||"quiz";
 ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(k=>{const f=document.querySelector('#optin [name='+k+']');if(f)f.value=UP.get(k)||""});
 if(BREVO_FORM_URL&&BREVO_FORM_URL!=='BREVO_URL_HERE')document.getElementById('optin').action=BREVO_FORM_URL;
-function optinSubmit(){const f=$("optin");if(f.email_address_check.value)return false;if(BREVO_FORM_URL==='BREVO_URL_HERE'){alert('Form not configured yet.');return false}
+function optinSubmit(){const f=$("optin");if(f.email_address_check.value)return false;if(!f.FIRSTNAME.value.trim())f.FIRSTNAME.value="Friend";if(BREVO_FORM_URL==='BREVO_URL_HERE'){alert('Form not configured yet.');return false}
 setTimeout(()=>{f.classList.add("hide");$("optin-ok").classList.remove("hide")},600);return true}
 document.getElementById('cta').href=HOPLINK+"&tid="+encodeURIComponent(TID);
 function show(id){["intro","quiz","load","result"].forEach(s=>$(s).classList.toggle("hide",s!==id))}
